@@ -83,10 +83,11 @@ def change_settings():
         else:
             print("Invalid setting")
         repeat = input("Do you want to change more settings? ")
+        repeat = repeat.strip()
         if repeat not in ['yes', 'Yes', 'y', 'Y']:
             break
     with open("settings.json", "w") as jsonfile:
-        myJSON = json.dump(settings, jsonfile, indent=4)
+        json.dump(settings, jsonfile, indent=4)
         print("Change successful")
         jsonfile.close()
     
@@ -115,21 +116,23 @@ def default_settings():
 
 if not os.path.exists("settings.json"):
     default = input("Do you want to use the default settings? ")
+    default = default.strip()
     if default in ['yes', 'Yes', 'y', 'Y']:
         default_settings()
     else:
         set_settings()
     change = input("Do you want to change the settings? ")
+    change = change.strip()
     if change in ['yes', 'Yes', 'y', 'Y']: 
         change_settings()
 
-settings = get_settings()
-num_items = settings["Number of Items"]
-names_of_items = settings["Names of Items"]
-days_set = settings["Days"]
-permanent = settings["Permanent Items"]
-weather_set = settings["Weather"]
-csv = settings["csv"]
+setting = get_settings()
+num_items = setting["Number of Items"]
+names_of_items = setting["Names of Items"]
+days_set = setting["Days"]
+permanent = setting["Permanent Items"]
+weather_set = setting["Weather"]
+csv = setting["csv"]
 
 
 def plot_freq(menu):
@@ -205,6 +208,7 @@ def change_df1(week):
         if time in names_of_items:
             break
     confirmation = input('Are you sure you want to change '+week.loc[day][time]+' to '+item+'? ')
+    confirmation = confirmation.strip()
     if confirmation in ['yes', 'Yes', 'y', 'Y']:
         week.loc[day][time] = item
     print(week)
@@ -225,6 +229,7 @@ def change_df(week, allowed):
         if time in names_of_items:
             break
     confirmation = input('Are you sure you want to change '+week.loc[day][time]+' to '+item+'? ')
+    confirmation = confirmation.strip()
     if confirmation in ['yes', 'Yes', 'y', 'Y']:
         week.loc[day][time] = item
     print(week)
@@ -232,6 +237,7 @@ def change_df(week, allowed):
 
 def repeat_changes(week, name):
     change = input('Do you want to make changes to the '+ name +'? ')
+    change = change.strip()
     if change not in ['yes', 'Yes', 'y', 'Y']:
         return week
     while True:
@@ -240,6 +246,7 @@ def repeat_changes(week, name):
         else:
             week = change_df1(week)
         repeat = input('Do you want to make more changes? ')
+        repeat = repeat.strip()
         if repeat not in ['yes', 'Yes', 'y', 'Y']:
             break
     return week
@@ -276,6 +283,7 @@ def make_weather():
 
 def ask_for_retry():
     retry = input('Do you want to try again? ')
+    retry = retry.strip()
     if retry in ['yes', 'Yes', 'y', 'Y']:
         return True
     return False

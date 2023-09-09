@@ -1,0 +1,26 @@
+{
+    "Number of Items": 2,
+    "Names of Items": [
+        "Item 1",
+        "Item 2"
+    ],
+    "Days": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ],
+    "Permanent Items": {},
+    "Weather": [
+        "clear",
+        "cloudy",
+        "rain",
+        "thunderstorm",
+        "mild showers"
+    ],
+    "GUI": false,
+    "csv": "Menu.csv"
+}
