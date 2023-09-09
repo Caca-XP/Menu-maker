@@ -14,6 +14,9 @@ import os
 # TODO Make a method to add new dishes data to the spreadsheet
 # TODO More Ideas on what to add from spreadsheet
 # TODO Add documentation to the code
+# TODO make an option to print out the list of ingredients needed for the week
+# TODO make an option to print out the list of ingredients needed for the day
+# TODO maybe make a connection to grocer.nz?
 
 
 # _____________Settings_____________
